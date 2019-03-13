@@ -22,4 +22,16 @@ WeGamers 社区接入文档
     :numbered:
 
     API接口使用/接口使用
+	
+.. toctree::
+    :caption: 错误码
+	
+	:numbered:
+	
+	接口初始化提示CODE定义在ErrorCode
+	ERR_PARAMS_DEFECT = 6004;//参数缺失
+	ERR_IGGID_DEFECT = 6000;//游戏ID缺失
+	ERR_SDKID_DEFECT = 6001;//SDKID缺失
+	ERR_NICKNAME_DEFECT = 6002;//游戏昵称缺失
+	ERR_SYS_VER = 6003;//系统版本低于5.0
 

@@ -7,20 +7,19 @@ SDK初始化
 说明：初始化SDK参数，使用其他API接口前需先调用初始化接口，可在社区入口页面被创建时调用
 WeGamersSDKParams params = new WeGamersSDKParams ();
 
-params.setGameAccountId(String accountId); 
+params.setGameAccountId(String accountId);               
 参数说明：游戏玩家唯一账号ID,由接入方提供，必填项
 
-params.setNickName(String name);
+params.setNickName(String name);              
 参数说明：游戏玩家昵称，由接入方提供
 
-params.setSkinType(int iSkinType);
-
-参数说明：指定主题皮肤类型，不填写则使用默认，数据值定义在常量类SkinType
-SkinType.SKIN_DEFUALT 默认主题
-SkinType.SKIN_VIOLET 紫色主题
-SkinType.SKIN_DARK 深色主题
-SkinType.SKIN_LM  王国纪元主题
-SkinType.SKIN_CC_COL2  CC主题
+params.setSkinType(int iSkinType);                
+参数说明：指定主题皮肤类型，不填写则使用默认，数据值定义在常量类SkinType             
+SkinType.SKIN_DEFUALT 默认主题               
+SkinType.SKIN_VIOLET 紫色主题              
+SkinType.SKIN_DARK 深色主题                 
+SkinType.SKIN_LM  王国纪元主题              
+SkinType.SKIN_CC_COL2  CC主题               
 
 params.setLandscape(boolean isLandscape);
 
