@@ -10,7 +10,6 @@ WeGamers 社区接入文档
 
 .. toctree::
     :caption: 工程配置
-	
     :numbered:
 
     工程配置/aar文件引用
@@ -20,17 +19,12 @@ WeGamers 社区接入文档
 
 .. toctree::
     :caption: API接口使用
-	
     :numbered:
 
     API接口使用/接口使用
-	
-	
-	
-.. toctree::
-    :caption: 错误码
-	
-	:numbered:
-	
 	初始化错误码/错误码
+	
+
+	
+	
 
