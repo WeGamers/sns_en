@@ -1,10 +1,11 @@
-.. _topics-标题:
+.. _topics-aar文件引用:
 
 ================
 aar文件引用
 ================
 
 在工程目录下生成目录文件aars，拷入aar文件Wegamers_SNS_SDK-release.aar，build.gradle文件下配置文件引用，导入aar需要的公共库
+
 repositories {
     flatDir {
         dirs 'aars'
