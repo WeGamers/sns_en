@@ -11,8 +11,8 @@ build.gradle文件下配置文件引用，导入aar需要的公共库
 repositories {
     flatDir {
         dirs 'aars'
-	}
-}
+	
+	}}
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -46,5 +46,4 @@ dependencies {
 	compile 'org.greenrobot:eventbus:3.0.0'
     
 	compile(name: 'Wegamers_SNS_SDK-release', ext: 'aar')
-
 }
