@@ -89,7 +89,10 @@ WegamersSDK.getInstance().startBrowser(Context ctx,String snsDetailUrl);
 说明：退出游戏时调用该接口，用于销毁服务进程
 
 @Override
+
 protected void onDestroy() {
+
 	WegamersSDK.getInstance().onDestroy();
+	
 	super.onDestroy();
 }
