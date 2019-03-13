@@ -9,7 +9,7 @@ WeGamersSDKParams params = new WeGamersSDKParams ();
 
 params.setGameAccountId(String accountId);
 
-参数说明：游戏玩家唯一账号ID,由接入方提供，必填项
+      参数说明：游戏玩家唯一账号ID,由接入方提供，必填项
 
 params.setNickName(String name);
 参数说明：游戏玩家昵称，由接入方提供
