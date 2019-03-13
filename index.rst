@@ -18,10 +18,5 @@ WeGamers内嵌社区为移动游戏提供了一个易于集成、功能强大的
     工程配置/aar文件引用
     工程配置/权限配置
 
-.. toctree::
-    :caption: API接口使用
-	
-    :numbered:
 
-    API接口使用/接口使用
 
