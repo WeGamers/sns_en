@@ -7,9 +7,8 @@ SDK初始化
 说明：初始化SDK参数，使用其他API接口前需先调用初始化接口，可在社区入口页面被创建时调用
 WeGamersSDKParams params = new WeGamersSDKParams ();
 
-params.setGameAccountId(String accountId);
-
-      参数说明：游戏玩家唯一账号ID,由接入方提供，必填项
+params.setGameAccountId(String accountId); 
+参数说明：游戏玩家唯一账号ID,由接入方提供，必填项
 
 params.setNickName(String name);
 参数说明：游戏玩家昵称，由接入方提供
