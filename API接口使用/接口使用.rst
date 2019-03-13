@@ -7,6 +7,7 @@ SDK初始化
 说明：初始化SDK参数，使用其他API接口前需先调用初始化接口，可在社区入口页面被创建时调用
 
 WeGamersSDKParams params = new WeGamersSDKParams();
+
 params.setGameAccountId(String accountId);           
 	参数说明：游戏玩家唯一账号ID,由接入方提供，必填项
 
@@ -35,17 +36,20 @@ WegamersSDK.getInstance().initialize(Context ctx, new WegamersSDK.WGSDKInitListe
 		 
         @Override
 		public void onShowEntrance(boolean isShow) {
-			//选择性的用来控制社区入口显示（系统版本低于5.0的进入社区会有通用提示不能使用，游戏方可直接对入口进行隐藏）
+			//选择性的用来控制社区入口显示
+			//（系统版本低于5.0的进入社区会有通用提示不能使用，游戏方可直接对入口进行隐藏）
+			
 			//isShow:true 可正常显示，flase 可隐藏
 		}
 });
 
-WegamersSDK.getInstance().setWGMsgReddotListener(new WegamersSDK.WGMsgReddotListener() {
-		@Override
-		public void onMsgReddot(boolean isHas) {
-			//事件处理最新消息红点提示,红点显示由接入方在入口处显示
-			//isHas ture 显示红点，false 清除红点
-         }
+WegamersSDK.getInstance().setWGMsgReddotListener(
+		new WegamersSDK.WGMsgReddotListener() {
+			@Override
+			public void onMsgReddot(boolean isHas) {
+				//事件处理最新消息红点提示,红点显示由接入方在入口处显示
+				//isHas ture 显示红点，false 清除红点
+			}
 });
 
 
@@ -54,6 +58,7 @@ WegamersSDK.getInstance().setWGMsgReddotListener(new WegamersSDK.WGMsgReddotList
 ================
 
 说明：检测后台配置的公告通知消息，弹出式通知显示由SDK提供，可在需要显示的页面调用该接口
+
 WegamersSDK.getInstance().checkNewNoticeMessage();
 
 ================
