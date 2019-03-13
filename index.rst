@@ -12,18 +12,16 @@ WeGamers内嵌社区为移动游戏提供了一个易于集成、功能强大的
 
 .. toctree::
     :caption: 工程配置
+	
     :numbered:
-	包含：aar文件引用、权限配置
 
     工程配置/aar文件引用
     工程配置/权限配置
 
- 
-
 .. toctree::
     :caption: API接口使用
+	
     :numbered:
-	注意：Android 9以下系统开启后会生成对应独立进程wegamers
 
     API接口使用/接口使用
 
