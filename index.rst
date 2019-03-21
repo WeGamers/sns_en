@@ -22,7 +22,7 @@ WeGamers 社区接入文档
 
     AndroidAPI接口使用/接口使用
 	Android初始化错误码/错误码
-
+	
 .. toctree::
     :caption: IOS 工程配置
     :numbered:
