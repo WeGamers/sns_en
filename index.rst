@@ -16,8 +16,6 @@ WeGamers 社区接入文档
     Android工程配置/aar文件引用
     Android工程配置/权限配置
 
-
-
 .. toctree::
     :caption: Android API接口使用
     :numbered:
@@ -28,7 +26,6 @@ WeGamers 社区接入文档
 .. toctree::
     :caption: IOS 工程配置
     :numbered:
-
 
 	
 
