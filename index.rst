@@ -29,9 +29,6 @@ WeGamers 社区接入文档
     :caption: IOS 工程配置
     :numbered:
 
-    IOS工程配置/资源导入
-    IOS工程配置/配置
-
 
 	
 
