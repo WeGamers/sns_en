@@ -29,15 +29,15 @@ WeGamers 社区接入文档
     :caption: IOS 工程配置
     :numbered:
 
-    IOS 工程配置/资源导入
-    IOS 工程配置/配置
+    IOS工程配置/资源导入
+    IOS工程配置/配置
 
 .. toctree::
     :caption: IOS API接口
     :numbered:
 
-    IOS API接口/入门指南
-    IOS API接口/API接口
+    IOSAPI接口/入门指南
+    IOSAPI接口/API接口
 	
 
 	
