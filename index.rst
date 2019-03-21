@@ -4,7 +4,6 @@
 WeGamers 社区接入文档
 ========================
 
-
 完整包下载_
 
 .. _完整包下载: http://10.0.2.56:9192/developer.html
@@ -25,25 +24,17 @@ WeGamers 社区接入文档
     AndroidAPI接口使用/接口使用
 	Android初始化错误码/错误码
 
-
-	
 .. toctree::
     :caption: IOS 工程配置
     :numbered:
 
-    IOS工程配置/资源导入
-    IOS工程配置/配置
-
-
+    IOS 工程配置/资源导入
+    IOS 工程配置/配置
 
 .. toctree::
     :caption: IOS API接口
     :numbered:
 
-    IOSAPI接口/入门指南
-    IOSAPI接口/API接口
-	
-
-	
-	
+    IOS API接口/入门指南
+    IOS API接口/API接口
 
