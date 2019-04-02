@@ -1,39 +1,39 @@
-============
-SDK入门指南
-============
+====================
+SDK Getting Started
+====================
 
-使用说明
-============
+Usage Instructions
+====================
 
 .. image::  ../images/image12.jpg
 
-- 第一步：在AppDelegate系统回调的函数中初始化游戏支持的横竖屏方向和设置内嵌社区支持的方向 详看Demo工程
-- 第二步：SDK初始化接口
+- Step 1: Initialize the screen orientation supported by the game in the AppDelegate system and set the supported embedded community screen orientation. See Demo Project
+- Step 2: SDK initialization interface
 
 .. code-block:: c
 
     + (void)initGameCommunity:(WeGamersSDKParams*)param showCommunityRed:(void (^)(BOOL bShow))showNotifyRedBlock supportGameCommunity:(void (^)(BOOL bSupport))supportBlock;
 
-- 第三步：设置游戏内弹出社区通知(在需要该功能的游戏界面进行调用即可)
+- Step 3: Set in-game pop-up community notification (can be called in the game interface that requires this function.)
 
 .. code-block:: c
 
     + (void)checkGameCommunityNotice:(UIWindow *)window completionBlock:(void (^)(NSError * _Nullable error))completionHandler;
 
-功能描述:弹出式通知直接展现在游戏界面中,为社区运营者提供一个非常高效的方式，来完成社区重要内容的传播到达。（如下图）
+Function: Pop-up notifications are displayed in the game interface, providing an efficient way for community operation staff to disseminate  important content in the community. (As shown below.)
 
 .. image::  ../images/image13.jpg
 
-- 第三步：设置游戏内弹出社区通知(在需要该功能的游戏界面进行调用即可)
+- Step 4: Open the game embedded community interface
 
 .. code-block:: c
 
     + (GameCommunityEntryResult *)openGameCommunityHomePageAndwillExitLive:(void (^)(void))blockWillExit
 
-游戏中点击游戏社区事件中调用此接口
+Call this interface in-game via game community event
 
 
-Demo工程
-========
+Demo Project
+=============
 
-Demo请参考附件中的GameCommunityDemo工程
+Demo: Please refer to the attached GameCommunityDemo project.

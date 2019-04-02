@@ -1,18 +1,18 @@
-============
-工程配置
-============
+===========================
+Engineering configurations
+===========================
 
-设置Other Linker Flags -ObjC
+Set Other Linker Flags -ObjC
 =============================
 
 .. image::  ../images/image8.jpg
 
-设置依赖库
-=========
+Setting up a dependent library
+===============================
 
 .. image::  ../images/image9.jpg
 
-设置支持http请求
-===============
+Set support http request
+==========================
 
 .. image::  ../images/image10.jpg

@@ -26,14 +26,14 @@ WeGamers 社区接入文档
 	Android初始化错误码/错误码
 
 .. toctree::
-    :caption: IOS 工程配置
+    :caption: IOS Engineering Configuration
     :numbered:
 
     IOS 工程配置/资源导入
     IOS 工程配置/配置
 
 .. toctree::
-    :caption: IOS API接口
+    :caption: IOS API Interface
     :numbered:
 
     IOS API接口/入门指南

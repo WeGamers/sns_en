@@ -1,178 +1,179 @@
-============
-API接口调用与说明
-============
+=======================
+API Interface Call and Description
+=======================
 
-调用示例
-==========
+Call Example
+================
 
-- 第一步：配置参数调用初始化与检测社区通知接口
+- Step 1: Configure parameters, call initialization, and detect community notification interface 
 
 .. code-block:: c
 
     __weak typeof(self)weakSelf = self;  
     WeGamersSDKParams *gcParam = [[WeGamersSDKParams alloc] init];
-    gcParam.sdkId = @"WeGamers内嵌社区分配的社区SDK编号(不为空)";
-    gcParam.gameAccountId = @"游戏账号(不为空)";
-    gcParam.nickName = @"游戏玩家昵称(不为空)";
-    gcParam.skinType = GameCommunityThemDefault;//五种换肤类型，这里选默认UI类型
+    gcParam.sdkId = @"WeGamers embedded community assigned community SDK number";
+    gcParam.sessionKey = @"WeGamers embedded community assigned community sessionKey";
+    gcParam.gameAccountId = @"Game account";
+    gcParam.nickName = @"Player’s nickname";
+    gcParam.skinType = GameCommunityThemDefault;//Five skin types. Choose default UI type here
 
     [GameCommunityEntry initGameCommunity:gcParam showCommunityRed:^(BOOL bShow) {
-        [weakSelf showNotifyRed:bShow];//游戏自己处理显示红点的UI回调block
+        [weakSelf showNotifyRed:bShow];//The game itself handles the red display dots’ UI callback block
     }supportGameCommunity:^(BOOL bSupport) {
-        if (bSupport) {//这里回调当前系统环境是否支持游戏社区功能
-            //支持游戏社区，游戏入口可以开放
+        if (bSupport) {//Callback the current system environment here and check if it supports the game community function
+            //Supports game community and the game entrance is revealed
         }
         else{
-            //不支持游戏社区，游戏入口可以进行隐藏
+            //Game community not supported and the game entrance can be hidden
         }
     }];
 
 .. code-block:: c
 
-    //注册游戏社区弹出通知 
+    //Register game community pop-up notification
     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate; 
     [GameCommunityEntry checkGameCommunityNotice:delegate.window completionBlock:^(NSError * _Nullable error) {
-        //检测社区通知是否成功
+        //Detects if the community notification is successful
     }];
 
-具体参数类型请见后面接口方法的详细说明
+For more details on parameter types, please refer to the interface methods.
 
-- 第二步：打开游戏社区界面
+- 3.1.2Step 2: Open game community interface
 
 .. code-block:: c
 
     - (void)onGotoCommunity:(id)sender
     {
         GameCommunityEntryResult* result = [GameCommunityEntry openGameCommunityHomePageAndwillExitLive:^{
-            NSLog(@"关闭游戏社区");
+            NSLog(@"Close game community");
         }];
 
         if (result.error && result.error.code == -1)
         {
-            //TODO: 提示打开失败
+            //TODO: Failed to open prompt
             //...
         } 
         else if (result.error && ((result.error.code == -2) || (result.error.code == -3)))
         {
-            //TODO: 取出主页视图，在指定页面弹出UIViewController* liveHomePage = result.wgHomePageViewController;//... 
+            //TODO: Take out the home page view and pop-up on the specified page 
+            UIViewController* liveHomePage = result.wgHomePageViewController;//... 
         }
     }
 
-- 第三步：设置游戏内嵌社区支持横竖屏
+- Step 3: Set game embedded community that supports screen orientation
 
-在AppDelegate添加方法并实现
+Add and implement methods in AppDelegate:
 
 .. code-block:: c
 
     - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-    {//AppDelegate 的supportedInterfaceOrientationsForWindow回调接口中处理
-        return [GameCommunityEntry appOrientationMask];//或者调用return UIInterfaceOrientationMaskAllButUpsideDown;调用UIInterfaceOrientationMaskAllButUpsideDown 游戏自己界面需要处理好自己的横竖屏状态
+    {//AppDelegate 的supportedInterfaceOrientationsForWindow Process callback interface
+        return [GameCommunityEntry appOrientationMask];//Or call return UIInterfaceOrientationMaskAllButUpsideDown; call UIInterfaceOrientationMaskAllButUpsideDown game's own interface needs to handle its own horizontal and vertical screen state
     }
 
 
-接口说明
-=========
+Interface Description
+========================
 
-包含头文件：#import <GameCommunitySDK/GameCommunitySDK.h>
+Include header file：#import <GameCommunitySDK/GameCommunitySDK.h>
 
-- GameCommunityParam参数配置
+- GameCommunityParam Parameter configuration
 
-具体看以下代码注释说明
+Detailed look into the following code commands:
 
 .. code-block:: c
 
     typedef enum : NSInteger {
-        GameCommunityThemDefault = 0,   //默认皮肤
-        GameCommunityThemPurple,        //紫色皮肤
-        GameCommunityThemDark,          //深色皮肤
-        GameCommunityThemLM,            //LM皮肤
-        GameCommunityThemCC,            //CC皮肤
-    } GameCommunityThemType;            //五种换肤类型
+        GameCommunityThemDefault = 0,   //Default skin
+        GameCommunityThemPurple,        //Purple skin
+        GameCommunityThemDark,          //Dark skin
+        GameCommunityThemLM,            ///Lords Mobile skin
+        GameCommunityThemCC,            //Castle Clash skin
+    } GameCommunityThemType;            //Five skin types
 
     @interface WeGamersSDKParams : NSObject
-    @property(nonatomic, copy) NSString* sdkId;                     //WeGamers内嵌社区分配的社区SDK编号ID
-    @property(nonatomic, copy) NSString* gameAccountId;             //游戏账号ID （游戏自己定义的账号ID）
-    @property(nonatomic, copy) NSString* nickName;                  //游戏玩家昵称
-    @property(nonatomic, assign) GameCommunityThemType skinType;    // 换肤类型
+    @property(nonatomic, copy) NSString* sdkId;                     //WeGamers embedded community assigned community SDK number ID
+    @property(nonatomic, copy) NSString* sessionKey;                //WeGamers embedded community assigned community sessionKey
+    @property(nonatomic, copy) NSString* gameAccountId;             //Game account ID (account ID determined by the game itself)
+    @property(nonatomic, copy) NSString* nickName;                  //Player’s nickname
+    @property(nonatomic, assign) GameCommunityThemType skinType;    // Skin type
     @end
 
-- 初始化接口
+- Initialize interface
 
 .. code-block:: c
 
     /**
-    游戏社区初始化接口
-    @param param 参数请参考WeGamersSDKParams定义。
-    @param showNotifyRedBlock 红点提醒回调 YES代表有新消息通知需要红点显示，NO表示清除红点显示
-    @param supportBlock 返回当前系统环境是否支持游戏社区
+    Game community initialization interface
+    @param param parameter, please refer to WeGamersSDKParams
+    @param showNotifyRedBlock Red dot notification callback “YES” means that there is a new message. “NO” means clear red dot display
+    @param supportBlock Is the game community supported when returned to the current system environment
     */
     + (void)initGameCommunity:(WeGamersSDKParams*)param showCommunityRed:(void (^)(BOOL bShow))showNotifyRedBlock supportGameCommunity:(void (^)(BOOL bSupport))supportBlock;
 
-配置好参数，在游戏打开游戏社区界面之前调用此初始化接口。showNotifyRedBlock 用来通知游戏外部UI游戏社区有新的评论或者通知红点UI显示或者隐藏 的回调。
+Configure the parameters and call this initialization interface before the game opens the game community interface. showNotifyRedBlock is used to notify that the game UI community has new comments, notify about the red dot UI display, or hidden callbacks. 
 
-- 检测游戏社区通知
+- 3.2.3Detect game community notifications
 
 .. code-block:: c
 
-   /**游戏内弹出社区通知(在需要弹出的时机调用改接口)
-   @param window 应用程序主Window
-   @param completionHandler 调用回调情况 error nil表示成功 否则表示失败
+   /**In-game pop-up community notifications (call interface when pop-up is required)
+   @param window Application main Window
+   @param completionHandler Callback condition error nil means success, otherwise it means failure
    */
    + (void)checkGameCommunityNotice:(UIWindow *)window completionBlock:(void (^)(NSError * _Nullable error))completionHandler;
 
-游戏自在需要显示通知弹窗的地方调用这个接口，检测到有新的通知消息会弹窗显示通知消息加入在传入的window层级，点击弹窗进入对应的通知消息内嵌社区界面
+The game calls this interface where it needs to display the notification pop-up. It detects that there is a new notification message. The pop-up window displays the notification message to join the incoming window level. Click the pop-up window to enter the corresponding notification message.
 
-- 打开游戏内嵌社区界面
+- 3.2.4Open the game embedded community interface
 
 .. code-block:: c
 
-  /**打开游戏社区页面
-  @return 打开的窗口结果对象：
-  1）社区主页视图控制器对象；
-  2）NSError对象。其中，错误码为
-  -1，表示社区主页视图控制器对象创建失败；
-  -2，表示未找开应用主窗口；
-  -3，表示弹出窗口异常；
+  /** Open game community page
+  @return Open window result:
+  1）Community home page view controller
+  2） NSError object. Error code:
+  -1，Indicates that the community home page view controller object creation failed
+  -2，Indicates that the application main window not found
+  -3，Indicates abnormal pop-up
+  -4，Indicating that the parameter is filled in abnormally (may be empty)
   */
   + (GameCommunityEntryResult *)openGameCommunityHomePageAndwillExitLive:(void (^)(void))blockWillExit;
 
-  游戏点击社区按钮时候调用改接口，blockWillExit为关闭社区的回调block。
+When the game taps on the community button, the interface is called. To close the community, use the callback block, blockWillExit.
 
-- 防止游戏战斗时候弹出通知弹窗打断游戏战斗画面接口
+- Prevent the game pop-up notification pop-up window to interrupt the game battle screen interface
 
 .. code-block:: c
 
   /**
-    用于防止游戏战斗时候checkGameCommunityNotice 弹出通知弹窗打断游戏战斗画面，游戏厂商可以再进入游戏战斗界面的时候调用这个接口防止通知弹窗打断战斗
-    重新调用checkGameCommunityNotice战斗状态会清除
- 
-    参数说明：bInComBat ：YES进入战斗状态，NO为解除战斗状态 再次调用checkGameCommunityNotice会自动置NO
+    Used to prevent the game from fighting when the checkGameCommunityNotice pop-up notification pop-up interrupts the game battle screen, the game manufacturer can call this interface when the game player interface is re-entered to prevent the notification window from interrupting the battle.Recalling the checkGameCommunityNotice battle state will clear
+    Parameter description: bInComBat: YES enters the combat state, NO is the release of the combat state. Calling checkGameCommunityNotice again will automatically set NO.
  */
  + (void)setInComBat:(BOOL)bInComBat;
 
+Engineering Code Change
+=========================
 
-工程代码改变
-=============
+In order to use the correct screen orientation, please refer to the following steps to call the relevant method to initialize and set up accordingly!
 
-为了正确的横竖屏方向，请务必按下面的步骤调用相关的方法进行初始化和设置！
-
-- 初始设置所支持的屏幕方向
+- Screen orientation supported by the initial setup: 
 
 .. code-block:: c
 
     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     {
-        //告诉SDK应用所支持的屏幕方向
+        //Tell SDK program the supported screen orientation
         [GameCommunityEntry initAppOrientationMask:XXX];
     }
 
-- 设置应用支持的屏幕方向：用于支持游戏内嵌社区横竖屏切换，游戏社区关闭后该值会修改为初始设置的屏幕方向不会修改游戏初始方向
+- 2.Set the screen orientation supported by the app: used to support the game’s embedded community switch screen orientation. After closing the game community, the value will be changed to the initial screen orientation setting.
 
 .. code-block:: c
 
     - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-    {//AppDelegate 的supportedInterfaceOrientationsForWindow回调接口中处理
-        return [GameCommunityEntry appOrientationMask];//或者调用return UIInterfaceOrientationMaskAllButUpsideDown;调用UIInterfaceOrientationMaskAllButUpsideDown 游戏自己界面需要处理好自己的横竖屏状态
+    {//AppDelegate 的supportedInterfaceOrientationsForWindow Process callback interface
+        return [GameCommunityEntry appOrientationMask];//Or call return UIInterfaceOrientationMaskAllButUpsideDown; call UIInterfaceOrientationMaskAllButUpsideDown game's own interface needs to handle its own horizontal and vertical screen state
     }
   
 
