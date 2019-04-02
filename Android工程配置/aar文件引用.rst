@@ -1,20 +1,20 @@
-.. _topics-gradle配置:
+.. _topics-gradle Configuration:
 
 ================
-Gradle配置
+Gradle Configuration
 ================
 
-拷贝aar文件到对应工程目录下
+Copy aar file
 =========================
 
-- 在工程目录下生成目录文件aars，拷入aar文件Wegamers_SNS_SDK-release.aar
+- Directory file aars is generated under the project directory. Copy the aar file Wegamers_SNS_SDK-release.aar, configure reference file under build.gradle file, then import the required aar public library
 
 .. image::  ../images_and/image_aar_input.png
 
-aar和公共库导入
+Import a public library
 =========================
 
-- build.gradle文件下配置文件引用，导入aar需要的公共库，接入工程已存在公共库的不用导入
+- The configuration file reference under the build.gradle file, import the public library needed by aar, access the project already exists in the public library without importing
 
 .. code-block:: c
 

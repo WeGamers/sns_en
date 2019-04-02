@@ -10,7 +10,7 @@ WeGamers 社区接入文档
 .. _完整包下载: http://10.0.2.56:9192/developer.html
 
 .. toctree::
-    :caption: Android 工程配置
+    :caption: Android Engineering configuration
     :numbered:
 
     Android工程配置/aar文件引用
@@ -19,7 +19,7 @@ WeGamers 社区接入文档
 
 
 .. toctree::
-    :caption: Android API接口使用
+    :caption: Android API interface
     :numbered:
 
     AndroidAPI接口使用/接口使用

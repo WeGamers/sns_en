@@ -1,31 +1,33 @@
-.. _topics-API接口:
+.. _topics-API:
 
 ================
-SDK初始化
+SDK initialization
 ================
 
-说明：初始化SDK参数，使用其他API接口前需先调用初始化接口，可在社区入口页面被创建时调用
+Description: Initialize the SDK parameters. Before using other API interfaces, you’ll need to call the initialization interface, which can be called when the community portal page is created.
 
 .. code-block:: c
 
 	WeGamersSDKParams params = new WeGamersSDKParams();
 	params.setGameAccountId(String accountId);           
-	//参数说明：游戏玩家唯一账号ID,由接入方提供，必填项
+	//Parameter description: The player’s unique account ID, provided by the access party. Must be filled in.
 	params.setNickName(String name);              
-	//参数说明：游戏玩家昵称，由接入方提供
+	//Parameter description: Player nickname. Provided by the access party.
 	params.setSkinType(int iSkinType);                
-	//参数说明：指定主题皮肤类型，不填写则使用默认，数据值定义在常量类SkinType             
-	//SkinType.SKIN_DEFUALT 默认主题               
-	//SkinType.SKIN_VIOLET 紫色主题              
-	//SkinType.SKIN_DARK 深色主题                 
-	//SkinType.SKIN_LM  王国纪元主题              
-	//SkinType.SKIN_CC_COL2  CC主题               
+	//Parameter description: Player nickname. Provided by the access party.         
+	//SkinType.SKIN_DEFUALT Default theme          
+	//SkinType.SKIN_VIOLET Purple theme            
+	//SkinType.SKIN_DARK Dark theme               
+	//SkinType.SKIN_LM Lords Mobile theme           
+	//SkinType.SKIN_CC_COL2 Castle Clash theme          
 
 	params.setLandscape(boolean isLandscape);
-	//参数说明：是否横屏：true 横屏，false 竖屏,默认横屏
-	//注意：SDK内部有切换横竖屏功能，且会记住用户最后一次操作，第二次进入如果setLandscape与第一次值一致，	方向会直接使用用户最后操作的方式
+	//Parameter description: If horizontal screen: true , if vertical screen: false. Default is horizontal screen.
+	//Note: This SDK allows you to switch between horizontal and vertical screen, and will remember the user's last operation. If setLandscape is consistent with the first value of the visit, // the screen orientation will be what was the user's last operation.
 	params.setSdkId(String sdkId);
-	//参数说明：wegamers后台提供的sdk id，由wegamers提供，必填项
+	//Parameter description: WeGamers backend SDK ID provided by WeGamers. Must be filled in.
+	 params.setSessionkey(String sessionKey);
+	//Parameter description: sessionname officially provided by wegamers, provided by wegamers, required
 
 	WegamersSDK.getInstance().setSdkParams(params);
 	WegamersSDK.getInstance().initialize(Context ctx, new WegamersSDK.WGSDKInitListener() {
@@ -34,9 +36,9 @@ SDK初始化
 		
 		@Override
 		public void onShowEntrance(boolean isShow) {
-			//选择性的用来控制社区入口显示
-			//（系统版本低于5.0的进入社区会有通用提示不能使用，游戏方可直接对入口进行隐藏）
-			//isShow:true 可正常显示，flase 可隐藏
+			//Used selectively to control the community portal display (system version lower than 5.0 will have a generic prompt that cannot be 
+			//used, the game side can hide the access entrance)
+			//isShow: true normal display, false: can be hidden
 		}
 	});
 
@@ -44,17 +46,17 @@ SDK初始化
 		new WegamersSDK.WGMsgReddotListener() {
 			@Override
 			public void onMsgReddot(boolean isHas) {
-				//事件处理最新消息红点提示,红点显示由接入方在入口处显示
-				//isHas ture 显示红点，false 清除红点
+				//Event process latest message with a red dot prompt. Red dot prompt is displayed by the access side.
+				//isHas true shows red dot, false removes red dot
 		}
 	});
 
 
 ================
-通知消息检测
+Notification message detection
 ================
 
-说明：检测后台配置的公告通知消息，弹出式通知显示由SDK提供，在显示的页面调用该接口（场景如下图）
+Description: Detects the announcement notification message configured in backend. The pop-up notification is displayed by the SDK. The interface can be called on the page that needs to be displayed.
 
 .. code-block:: c
 
@@ -63,61 +65,97 @@ SDK初始化
 .. image::  ../images_and/image_notice.jpg
 
 ================
-设置不弹通知窗口状态
+No popup notification
 ================
 
-说明：通知消息显示页面可有接入方控制，避免数据延时在战斗中显示，如果提前进入战斗可调用该API控制
+Description: Notification message display page can be controlled by the access side to prevent data delays, which would result in the data being displayed in the middle of a battle. If the battle is started earlier, you can call this API control.
 
 .. code-block:: c
 
 	WegamersSDK.getInstance().setInComBat(boolean inComBat);
-	//参数说明：inComBat ：true进入战斗，再次调用checkNewNoticeMessage会自动置flase
+	//Parameter description: inComBat: true: enters battle, call checkNewNoticeMessage again will automatically set it to false.
 
 ================
-进入内嵌游戏社区
+Enter embedded game community
 ================
 
-说明：进入内嵌社区的调用接口
+Description: Enter the calling interface of the embedded community
 
 .. code-block:: c
 
 	WegamersSDK.getInstance().startBrowser(Context ctx);
 
 ================
-进入内嵌社区某帖子详情
+Details of a post in the embedded community
 ================
 
-说明：接口可选用，提供帖子详情URL进入内嵌社区展示帖子详情内容
+Description: Interface access is optional. To display post content, provide post details URL to enter embedded community
 
 .. code-block:: c
 
 	WegamersSDK.getInstance().startBrowser(Context ctx,String snsDetailUrl);
-	//参数说明：Context  ctx ：Activity上下文，String snsDetailUrl 帖子详情URL
+	//Parameter description: Context ctx: Activity context, String snsDetailUrl post details
 
 ================
-退出游戏销毁服务
+Service control
 ================
 
-说明：退出游戏时调用该接口，用于销毁服务进程
+service paused
+=========================
+
+Description: Leave the current page or enter the background, trigger the method on the page onPause, suspend the service (to avoid unnecessary ANR generated by the device above 8.0 for background service restrictions)
 
 .. code-block:: c
 
-	@Override
-	protected void onDestroy() {
-		WegamersSDK.getInstance().onDestroy();
-		super.onDestroy();
-	}
 
-================
-错误码
-================
+    @Override
+    protected void onPause() {
+        super.onPause();
+        WegamersSDK.getInstance().onPause();
+    }
 
-接口初始化提示CODE定义在ErrorCode
+
+Recovery service
+=========================
+
+Description: This interface is called when returning to the current page for recovery service.
 
 .. code-block:: c
 
-	ERR_PARAMS_DEFECT = 6004;//参数缺失
-	ERR_IGGID_DEFECT = 6000;//游戏ID缺失
-	ERR_SDKID_DEFECT = 6001;//SDKID缺失
-	ERR_NICKNAME_DEFECT = 6002;//游戏昵称缺失
-	ERR_SYS_VER = 6003;//系统版本低于5.0
+	
+    @Override
+    protected void onResume() {
+        super.onResume();
+        WegamersSDK.getInstance().onResume();
+    }
+
+
+Destruction service
+=========================
+
+Description: This interface is called when the game is exited or the current page is destroyed, and is used to destroy the service process.
+
+.. code-block:: c
+
+	
+    @Override
+    protected void onDestroy() {
+        WegamersSDK.getInstance().onDestroy();
+        super.onDestroy();
+    }
+
+
+================
+Initialization error code
+================
+
+Interface initialization prompt code is defined in ErrorCode
+
+.. code-block:: c
+
+	ERR_PARAMS_DEFECT = 6004;//missing parameter
+	ERR_IGGID_DEFECT = 6000;//game ID missing
+	ERR_SDKID_DEFECT = 6001;//SDKID missing
+	ERR_NICKNAME_DEFECT = 6002;//game nickname missing
+	ERR_SYS_VER = 6003;//system version is lower than 5.0
+	ERR_SESSIONKEY_DEFECT = 6002;//key missing
