@@ -5,10 +5,6 @@ WeGamers 社区接入文档
 ========================
 
 
-完整包下载_
-
-.. _完整包下载: http://10.0.2.56:9192/developer.html
-
 .. toctree::
     :caption: Android Engineering configuration
     :numbered:
