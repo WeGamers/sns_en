@@ -1,7 +1,7 @@
 .. _topics-index:
 
 ========================
-WeGamers 社区接入文档
+WeGamers Community Access Documentation
 ========================
 
 
