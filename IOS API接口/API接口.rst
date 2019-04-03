@@ -15,7 +15,7 @@ Call Example
     gcParam.sessionKey = @"WeGamers embedded community assigned community sessionKey";
     gcParam.gameAccountId = @"Game account";
     gcParam.nickName = @"Player’s nickname";
-    gcParam.skinType = GameCommunityThemDefault;//Five skin types. Choose default UI type here
+    gcParam.skinType = GameCommunityThemDark;//Five skin types. Choose default UI type here
 
     [GameCommunityEntry initGameCommunity:gcParam showCommunityRed:^(BOOL bShow) {
         [weakSelf showNotifyRed:bShow];//The game itself handles the red display dots’ UI callback block
@@ -84,9 +84,9 @@ Detailed look into the following code commands:
 .. code-block:: c
 
     typedef enum : NSInteger {
-        GameCommunityThemDefault = 0,   //Default skin
+        GameCommunityThemWG = 0,        //WG skin
         GameCommunityThemPurple,        //Purple skin
-        GameCommunityThemDark,          //Dark skin
+        GameCommunityThemDark,          //Dark skin（Not configured, the default set of skin）
         GameCommunityThemLM,            ///Lords Mobile skin
         GameCommunityThemCC,            //Castle Clash skin
     } GameCommunityThemType;            //Five skin types
