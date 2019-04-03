@@ -15,7 +15,7 @@ Description: Initialize the SDK parameters. Before using other API interfaces, y
 	//Parameter description: Player nickname. Provided by the access party.
 	params.setSkinType(int iSkinType);                
 	//Parameter description: Player nickname. Provided by the access party.         
-	//SkinType.SKIN_DEFUALT Default theme          
+	//SkinType.SKIN_WEGAMERS WeGamers theme         
 	//SkinType.SKIN_VIOLET Purple theme            
 	//SkinType.SKIN_DARK Dark theme               
 	//SkinType.SKIN_LM Lords Mobile theme           
