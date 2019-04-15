@@ -1,9 +1,9 @@
-=======================
+====================================
 API Interface Call and Description
-=======================
+====================================
 
 Call Example
-================
+==================
 
 - Step 1: Configure parameters, call initialization, and detect community notification interface 
 
