@@ -38,7 +38,7 @@ Call Example
 
 For more details on parameter types, please refer to the interface methods.
 
-- 3.1.2Step 2: Open game community interface
+- Step 2: Open game community interface
 
 .. code-block:: c
 
@@ -113,7 +113,7 @@ Detailed look into the following code commands:
 
 Configure the parameters and call this initialization interface before the game opens the game community interface. showNotifyRedBlock is used to notify that the game UI community has new comments, notify about the red dot UI display, or hidden callbacks. 
 
-- 3.2.3Detect game community notifications
+- Detect game community notifications
 
 .. code-block:: c
 
@@ -125,7 +125,7 @@ Configure the parameters and call this initialization interface before the game 
 
 The game calls this interface where it needs to display the notification pop-up. It detects that there is a new notification message. The pop-up window displays the notification message to join the incoming window level. Click the pop-up window to enter the corresponding notification message.
 
-- 3.2.4Open the game embedded community interface
+- Open the game embedded community interface
 
 .. code-block:: c
 
@@ -167,7 +167,7 @@ In order to use the correct screen orientation, please refer to the following st
         [GameCommunityEntry initAppOrientationMask:XXX];
     }
 
-- 2.Set the screen orientation supported by the app: used to support the game’s embedded community switch screen orientation. After closing the game community, the value will be changed to the initial screen orientation setting.
+- Set the screen orientation supported by the app: used to support the game’s embedded community switch screen orientation. After closing the game community, the value will be changed to the initial screen orientation setting.
 
 .. code-block:: c
 
