@@ -63,7 +63,7 @@ Description: Detects the announcement notification message configured in backend
 
 .. code-block:: c
 
-	WegamersSDK.getInstance().checkNewNoticeMessage();
+	WegamersSDK.getInstance().checkNewNoticeMessage(Activity act);
 	
 .. image::  ../images_and/image_notice.png
 
