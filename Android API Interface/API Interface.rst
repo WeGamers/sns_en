@@ -89,17 +89,6 @@ Description: Enter the calling interface of the embedded community
 	WegamersSDK.getInstance().startBrowser(Context ctx);
 
 ================
-Details of a post in the community
-================
-
-Description: Interface access is optional. To display post content, provide post details URL to enter embedded community
-
-.. code-block:: c
-
-	WegamersSDK.getInstance().startBrowser(Context ctx,String snsDetailUrl);
-	//Parameter description: Context ctx: Activity context, String snsDetailUrl post details
-
-================
 Service control
 ================
 
