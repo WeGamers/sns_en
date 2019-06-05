@@ -10,7 +10,7 @@ WeGamers Community Access Documentation
     :numbered:
 
     Android Engineering Configuration/aar File Reference
-    Android Engineering Configuration/Permission Configuration
+    Android Engineering Configuration/manifest Config
 
 
 
@@ -19,7 +19,6 @@ WeGamers Community Access Documentation
     :numbered:
 
     Android API Interface/API Interface
-	Android initialization Error Code/Error Code
 
 .. toctree::
     :caption: IOS Engineering Configuration
