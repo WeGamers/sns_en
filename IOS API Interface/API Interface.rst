@@ -152,6 +152,25 @@ When the game taps on the community button, the interface is called. To close th
  */
  + (void)setInComBat:(BOOL)bInComBat;
 
+
+- Open the topic at the embedded community interface
+
+.. code-block:: c
+
+  /** Open the topic at the community
+  @param param For the param parameter, please refer to the definition of WeGamersSDKParams
+  @param sTopicId TopicId
+  @param supportBlock Is the game community supported when returned to the current system environment
+  @return Open window result:
+  1）Community home page view controller
+  2） NSError object. Error code:
+  -1，Indicates that the community home page view controller object creation failed
+  -2，Indicates that the application main window not found
+  -3，Indicates abnormal pop-up
+  -4，Indicating that the parameter is filled in abnormally (may be empty)
+  */
+ + (GameCommunityEntryResult *)openTopicGameCommunity:(WeGamersSDKParams*)param topicId:(NSString *)sTopicId supportGameCommunity:(void (^)(BOOL bSupport))supportBlock;
+
 Engineering Code Change
 =========================
 

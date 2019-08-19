@@ -87,6 +87,17 @@ Description: Enter the calling interface of the embedded community
 .. code-block:: c
 
 	WegamersSDK.getInstance().startBrowser(Context ctx);
+	
+================
+Enter the game community topic list
+================
+
+Description:  The topic is configured by the official content management backend.
+
+.. code-block:: c
+
+	WegamersSDK.getInstance().startTopicBrowser(Context context,String topicId);
+	//Parameter description: topicId ：Topic ID, management backend configuration
 
 ================
 Service control
