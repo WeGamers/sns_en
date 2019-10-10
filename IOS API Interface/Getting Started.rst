@@ -14,13 +14,13 @@ Usage Instructions
 
     + (void)initGameCommunity:(WeGamersSDKParams*)param showCommunityRed:(void (^)(BOOL bShow))showNotifyRedBlock supportGameCommunity:(void (^)(BOOL bSupport))supportBlock;
 
-- Step 3: Set in-game pop-up community notification (can be called in the game interface that requires this function.)
+- Step 3: Set in-game pop-up community notification (UI is supported by SDK, please set the content at the backend. The notification can be called in the game interface that requires this function. Suggest to detect the notification after the game finished the starting. Please DO NOT use polling and avoid to detect it at the tutorial and during the gaming process.)
 
 .. code-block:: c
 
     + (void)checkGameCommunityNotice:(UIWindow *)window completionBlock:(void (^)(NSError * _Nullable error))completionHandler;
 
-Function: Pop-up notifications are displayed in the game interface, providing an efficient way for community operation staff to disseminate  important content in the community. (As shown below.)
+Function: Pop-up notifications are displayed in the game interface, players could see the relative content in the community after they click the pop-up window. It provides an efficient way for community operation staff to disseminate  important content in the community. (As shown below.)
 
 .. image::  ../images/image13.jpg
 

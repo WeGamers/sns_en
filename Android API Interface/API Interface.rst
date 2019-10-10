@@ -1,4 +1,4 @@
-.. _topics-API:
+﻿.. _topics-API:
 
 ================
 SDK initialization
@@ -26,7 +26,7 @@ Description: Initialize the SDK parameters. Before using other API interfaces, y
 	//Note: This SDK allows you to switch between horizontal and vertical screen, and will remember the user's last operation. If setLandscape is consistent with the first value of the visit, // the screen orientation will be what was the user's last operation.
 	params.setSdkId(String sdkId);
 	//Parameter description: WeGamers backend SDK ID provided by WeGamers. Must be filled in.
-	 params.setSessionkey(String sessionKey);
+	params.setSessionkey(String sessionKey);
 	//Parameter description: sessionname officially provided by wegamers, provided by wegamers, required
 
 	WegamersSDK.getInstance().setSdkParams(params);
@@ -53,20 +53,23 @@ Description: Initialize the SDK parameters. Before using other API interfaces, y
 
 
 ================
-Notification message detection
+Pop-up notification
 ================
 
-Description: Detects the announcement notification message configured in backend. The pop-up notification is displayed by the SDK. The interface can be called on the page that needs to be displayed.
+Pop-up notification detection
+=========================
+
+Description: Detects the announcement notification message configured in backend. The UI of pop-up notification is displayed by the SDK. The interface can be called on the page that needs to be displayed. (As shown below.) Suggest to detect the notification after the game finished the starting. Please DO NOT use polling and avoid to detect it at the tutorial and during the gaming process.
 
 .. code-block:: c
 
-	WegamersSDK.getInstance().checkNewNoticeMessage();
+	WegamersSDK.getInstance().checkNewNoticeMessage(Activity act);
 	
-.. image::  ../images_and/image_notice.jpg
+.. image::  ../images_and/image_notice.png
 
-================
-No popup notification
-================
+
+Set the prohibition status of pop-up notification
+=========================
 
 Description: Notification message display page can be controlled by the access side to prevent data delays, which would result in the data being displayed in the middle of a battle. If the battle is started earlier, you can call this API control.
 
@@ -76,7 +79,7 @@ Description: Notification message display page can be controlled by the access s
 	//Parameter description: inComBat: true: enters battle, call checkNewNoticeMessage again will automatically set it to false.
 
 ================
-Enter embedded game community
+Enter game community
 ================
 
 Description: Enter the calling interface of the embedded community
@@ -84,17 +87,17 @@ Description: Enter the calling interface of the embedded community
 .. code-block:: c
 
 	WegamersSDK.getInstance().startBrowser(Context ctx);
-
+	
 ================
-Details of a post in the embedded community
+Enter the game community topic list
 ================
 
-Description: Interface access is optional. To display post content, provide post details URL to enter embedded community
+Description:  The topic is configured by the official content management backend.
 
 .. code-block:: c
 
-	WegamersSDK.getInstance().startBrowser(Context ctx,String snsDetailUrl);
-	//Parameter description: Context ctx: Activity context, String snsDetailUrl post details
+	WegamersSDK.getInstance().startTopicBrowser(Context context,String topicId);
+	//Parameter description: topicId ：Topic ID, management backend configuration
 
 ================
 Service control

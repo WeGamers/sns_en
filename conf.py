@@ -19,8 +19,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'WeGamersSDK_SNS'
-copyright = '2019, zhenyanglin'
+project = 'WeGamersSDK'
+copyright = '2019-4-16, IGG'
 author = 'zhenyanglin'
 
 # The short X.Y version
