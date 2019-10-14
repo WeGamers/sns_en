@@ -152,7 +152,28 @@ When the game taps on the community button, the interface is called. To close th
  */
  + (void)setInComBat:(BOOL)bInComBat;
 
-- Open the topic at the community
+- Call the community to display a post directly
+Note: Through the interface, developers can open the community to display a post directly in the game, also let players get the info and participate in the interaction easily. The post ID can be obtained through the cms.wegamers.com management back-end.
+
+.. code-block:: c
+
+  /**Display a post directly
+  @param param For the param parameter, please refer to the definition of WeGamersSDKParams
+  @param sSNSId SNS Id
+  @@param supportBlock Return to the current system environment to check whether it supports to open the game community
+  @return The object for the opened window:
+  1）Community home page view controller
+  2） NSError object. Error code:
+  -1，Indicates that the community home page view controller object creation failed
+  -2，Indicates that the application main window not found
+  -3，Indicates abnormal pop-up
+  -4，Indicating that the parameter is filled in abnormally (may be empty)
+  */
+ + (GameCommunityEntryResult *)openSNSGameCommunity:(WeGamersSDKParams*)param snsId:(NSString *)sSNSId supportGameCommunity:(void (^)(BOOL bSupport))supportBlock;
+
+ - Call the community to display a topic page directly
+Note: The “topic” provides the possibility for content collection. Through the interface, developers can open the community to display a topic page directly in the game, also let players get a certain content collection. The topic ID can be obtained through the cms.wegamers.com management back-end.
+ 
  .. code-block:: c
 
   /**Open the topic at the community
@@ -168,23 +189,6 @@ When the game taps on the community button, the interface is called. To close th
   -4，Indicating that the parameter is filled in abnormally (may be empty)
   */
  + (GameCommunityEntryResult *)openTopicGameCommunity:(WeGamersSDKParams*)param topicId:(NSString *)sTopicId supportGameCommunity:(void (^)(BOOL bSupport))supportBlock;
-
-- Open a post community
-.. code-block:: c
-
-  /**Open a post community
-  @param param For the param parameter, please refer to the definition of WeGamersSDKParams
-  @param sSNSId SNS Id
-  @@param supportBlock Return to the current system environment to check whether it supports to open the game community
-  @return The object for the opened window:
-  1）Community home page view controller
-  2） NSError object. Error code:
-  -1，Indicates that the community home page view controller object creation failed
-  -2，Indicates that the application main window not found
-  -3，Indicates abnormal pop-up
-  -4，Indicating that the parameter is filled in abnormally (may be empty)
-  */
- + (GameCommunityEntryResult *)openSNSGameCommunity:(WeGamersSDKParams*)param snsId:(NSString *)sSNSId supportGameCommunity:(void (^)(BOOL bSupport))supportBlock;
 
 Engineering Code Change
 =========================
