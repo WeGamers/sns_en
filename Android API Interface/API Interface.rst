@@ -87,12 +87,24 @@ Description: Enter the calling interface of the embedded community
 .. code-block:: c
 
 	WegamersSDK.getInstance().startBrowser(Context ctx);
-	
+
 ================
-Enter the game community topic list
+Call the community to display a post directly
 ================
 
-Description:  The topic is configured by the official content management backend.
+Note: Through the interface, developers can open the community to display a post directly in the game, also let players get the info and participate in the interaction easily. The post ID can be obtained through the cms.wegamers.com management back-end.
+
+.. code-block:: c
+
+	WegamersSDK.getInstance().startBrowserSNSDetail(Context context,String snsID);
+	//Parameter description:snsID： Post ID, available from the administrative background
+
+	
+================
+Call the community to display a topic page directly
+================
+
+Description:  The “topic” provides the possibility for content collection. Through the interface, developers can open the community to display a topic page directly in the game, also let players get a certain content collection. The topic ID can be obtained through the cms.wegamers.com management back-end.
 
 .. code-block:: c
 
