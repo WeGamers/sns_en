@@ -9,7 +9,7 @@ WeGamers Community Access Documentation
     :caption: Android Engineering Configuration
     :numbered:
 
-    Android Engineering Configuration/aar File Reference
+    Android Engineering Configuration/gradle Config
     Android Engineering Configuration/manifest Config
 
 

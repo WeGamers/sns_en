@@ -92,7 +92,7 @@ Description: Enter the calling interface of the embedded community
 Call the community to display a post directly
 ================
 
-Note: Through the interface, developers can open the community to display a post directly in the game, also let players get the info and participate in the interaction easily. The post ID can be obtained through the cms.wegamers.com management back-end.
+Description: Through the interface, developers can open the community to display a post directly in the game, also let players get the info and participate in the interaction easily. The post ID can be obtained through the http://cms.wegamers.com management back-end.
 
 .. code-block:: c
 
@@ -104,7 +104,7 @@ Note: Through the interface, developers can open the community to display a post
 Call the community to display a topic page directly
 ================
 
-Description:  The “topic” provides the possibility for content collection. Through the interface, developers can open the community to display a topic page directly in the game, also let players get a certain content collection. The topic ID can be obtained through the cms.wegamers.com management back-end.
+Description:  The “topic” provides the possibility for content collection. Through the interface, developers can open the community to display a topic page directly in the game, also let players get a certain content collection. The topic ID can be obtained through the http://cms.wegamers.com management back-end.
 
 .. code-block:: c
 
