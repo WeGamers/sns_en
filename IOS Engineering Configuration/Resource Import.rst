@@ -1,3 +1,14 @@
+==================
+Pod library mode
+==================
+
+Note: If the developer project supports Pod access to the third-party library, simply add a configuration code to the Podfile to re-pod Install (the configuration code is as follows),If you use the Pod library to access, you do not need to do resource import and project configuration operations.
+
+.. code-block:: c
+
+	pod 'WGCommunity', :git => "https://github.com/dev8ios/WGCommunity.git"
+
+
 ====================
 SDK Resource import
 ====================
